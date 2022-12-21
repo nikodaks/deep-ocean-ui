@@ -1,18 +1,32 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from "@angular/material/button";
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {NgxsModule} from '@ngxs/store';
+import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
+import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin';
+import {ListComponent} from './todo [example]/list/list.component';
+import {FormComponent} from './todo [example]/form/form.component';
+import {HttpClientModule} from '@angular/common/http';
+import {ReactiveFormsModule} from '@angular/forms';
+import {TodoState} from './todo [example]/states/todo.state';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    MatButtonModule
+    NgxsModule.forRoot([
+      TodoState
+    ]),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsLoggerPluginModule.forRoot(),
+    HttpClientModule,
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
