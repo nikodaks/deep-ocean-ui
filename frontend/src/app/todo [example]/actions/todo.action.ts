@@ -1,33 +1,33 @@
-import {Todo} from '../models/Todo';
+import { Todo } from 'todo [example]/models/Todo';
 
-export class AddTodo {
+export namespace TodoActions {
+  export class AddTodo {
     static readonly type = '[Todo] Add';
 
-    constructor(public payload: Todo) {
-    }
-}
+    constructor(public payload: Todo) {}
+  }
 
-export class GetTodos {
+  export class GetTodos {
     static readonly type = '[Todo] Get';
-}
+  }
 
-export class UpdateTodo {
+  export class UpdateTodo {
     static readonly type = '[Todo] Update';
 
-    constructor(public payload: Todo, public id: number) {
-    }
-}
+    constructor(public payload: Todo, public id: number) {}
+  }
 
-export class DeleteTodo {
+  export class DeleteTodo {
     static readonly type = '[Todo] Delete';
 
-    constructor(public id: number) {
-    }
-}
+    constructor(public id: number) {}
+  }
 
-export class SetSelectedTodo {
+  export class SetSelectedTodo {
     static readonly type = '[Todo] Set';
 
-    constructor(public payload: Todo) {
-    }
+    constructor(public payload: Todo | null) {}
+  }
 }
+
+export const variable = '123';
