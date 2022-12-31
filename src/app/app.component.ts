@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'nft-marketplace-frontend';
+
+  test() {
+    this.title = '123'
+  }
 }
